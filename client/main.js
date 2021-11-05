@@ -41,24 +41,30 @@ document.getElementById("complimentButton").onclick = function () {
 
   document.getElementById("scorpioPic").onclick = function () {
     axios.get("http://localhost:4000/api/horoscopes/images/1")
-        .then(function (response) {
-          const data = response.data;
-          alert(data);
-        });
+    .then(function (response) {
+        const data = response.data;
+        let picture = document.createElement('div');
+        picture.innerHTML = `<img src="${data}"/>`
+        pictureContainer.appendChild(picture)
+      });
+      
   };
   document.getElementById("sagittariusPic").onclick = function () {
     axios.get("http://localhost:4000/api/horoscopes/images/2")
-        .then(function (response) {
-          const data = response.data;
-          alert(data);
-        });
+    .then(function (response) {
+        const data = response.data;
+        let picture = document.createElement('div');
+        picture.innerHTML = `<img src="${data}"/>`
+        pictureContainer.appendChild(picture)
+      });
+      
   };
   document.getElementById("capricornPic").onclick = function () {
-    axios.post('http://localhost:4000/api/horoscopes/images/3')
+    axios.get('http://localhost:4000/api/horoscopes/images/3')
         .then(function (response) {
           const data = response.data;
           let picture = document.createElement('div');
-          picture.innerHTML = `<img src=${data}/>`
+          picture.innerHTML = `<img src="${data}"/>`
           pictureContainer.appendChild(picture)
         });
         
