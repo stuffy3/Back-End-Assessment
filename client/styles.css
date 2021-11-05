@@ -1,6 +1,8 @@
-#pictureContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
+img {
+  margin: auto;
+  max-width: 10%;
+  max-height: 10%;
+}
+div {
+  margin: 20px;
+}

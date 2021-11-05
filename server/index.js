@@ -8,6 +8,9 @@ app.use(cors());
 
 app.use(express.json()); // When we want to be able to accept JSON.
 let globalId = 4
+
+let otherSigns = []
+
 const signs = 
 [
   {
@@ -29,7 +32,15 @@ const signs =
   }
 ]
 
-
+app.post("/api/signs/", (req, res) => {
+  console.log(req.body.data)
+  if(req.body.data ) {
+  otherSigns.push(req.body.data)
+  res.sendStatus(200)
+  } else {
+    res.sendstatus(400)
+  }
+})
 
 app.get("/api/horoscopes/:id", (req, res) => {
   let index = signs.findIndex((elem) => elem.id === +req.params.id)
@@ -70,6 +81,7 @@ let randomFortune = fortunes[randomFortuneIndex]
   res.status(200).send(randomFortune);
   
 });
+
 
 
 

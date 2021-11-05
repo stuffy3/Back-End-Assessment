@@ -69,6 +69,21 @@ document.getElementById("complimentButton").onclick = function () {
         });
         
   };
+  let signBtn = document.getElementById("addSignsButton")
+  let signsInput = document.getElementById("addSigns")
+  console.log(signsInput)
 
+  const addingSigns = () => {
+    let body = signsInput.value
+
+    axios.post("http://localhost:4000/api/signs/", {data: body})
+    .then(res => {
+      alert('Sign Has Been Added!')
+    })
+    .catch(err => {
+      alert("Please Add A Sign.")
+    })
+  }
  
-        
+
+        signBtn.addEventListener('click', addingSigns);
