@@ -10,7 +10,7 @@ app.use(express.json()); // When we want to be able to accept JSON.
 let globalId = 4
 
 let otherSigns = []
-
+let otherImage = []
 const signs = 
 [
   {
@@ -38,7 +38,17 @@ app.post("/api/signs/", (req, res) => {
   otherSigns.push(req.body.data)
   res.sendStatus(200)
   } else {
-    res.sendstatus(400)
+    res.status(400)
+  }
+})
+
+app.post("/api/horoscopes/images", (req, res) => {
+  console.log(req.body.data)
+  if(req.body.data ) {
+  otherImage.push(req.body.data)
+  res.sendStatus(200)
+  } else {
+    res.status(400)
   }
 })
 

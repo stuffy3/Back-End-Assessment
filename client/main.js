@@ -84,6 +84,21 @@ document.getElementById("complimentButton").onclick = function () {
       alert("Please Add A Sign.")
     })
   }
- 
+ signBtn.addEventListener('click', addingSigns);
 
-        signBtn.addEventListener('click', addingSigns);
+let imageBtn = document.getElementById("addImageButton")
+let imageInput = document.getElementById("addImage")
+  console.log(imageInput)
+
+const addingImages = () => {
+  let body = imageInput.value
+
+  axios.post("http://localhost:4000/api/horoscopes/images", {data: body})
+    .then(res => {
+      alert('Image Has Been Added!')
+    })
+    .catch(err => {
+      alert("Please Add and Image URL.")
+    })
+  }
+  imageBtn.addEventListener('click', addingImages);
